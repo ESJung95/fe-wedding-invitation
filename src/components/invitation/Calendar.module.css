@@ -1,0 +1,108 @@
+.title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--rose-deep);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.dateTime {
+  font-size: 17px;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 4px;
+}
+
+.venue {
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.monthLabel {
+  font-family: "Noto Serif KR", serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 14px;
+}
+
+.weekdayRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+}
+
+.weekday {
+  font-size: 15px;
+  color: #a3b18f;
+  text-align: center;
+}
+
+.sun {
+  font-size: 15px;
+  color: #c9836f;
+  text-align: center;
+}
+
+.sat {
+  font-size: 15px;
+  color: #5f7ca0;
+  text-align: center;
+}
+
+.weekRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 10px;
+}
+
+.dateCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--ink);
+  height: 32px;
+}
+
+.dateActive {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--gold) 0%, #8f6c2b 100%);
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ddayText {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 22px 0 0;
+}
+
+.heart {
+  color: var(--gold);
+}
+
+.ddayText b {
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rose-deep);
+  margin: 0 2px;
+}

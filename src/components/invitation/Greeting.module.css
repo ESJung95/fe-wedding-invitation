@@ -1,0 +1,50 @@
+.text {
+  font-size: 16px;
+  line-height: 2;
+  text-align: center;
+  color: var(--ink);
+  margin: 0 0 34px;
+}
+
+.families {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.familyCol {
+  flex: 1;
+  text-align: center;
+  padding: 0 18px;
+}
+
+.divider {
+  width: 1px;
+  background: var(--line);
+}
+
+.sideLabel {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #a3b18f;
+  margin: 0 0 10px;
+}
+
+.parents {
+  font-family: "Noto Serif KR", serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.role {
+  font-size: 14px;
+  color: var(--rose-deep);
+  margin: 0;
+}
+
+.coupleName {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+}

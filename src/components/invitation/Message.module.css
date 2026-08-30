@@ -1,0 +1,43 @@
+.privateNote {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: -14px 0 20px;
+  line-height: 1.6;
+}
+
+.form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.form textarea {
+  resize: none;
+  height: 70px;
+}
+
+.submit {
+  width: 100%;
+  border: none;
+  background: var(--rose);
+  color: #fff;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}

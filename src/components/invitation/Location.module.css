@@ -1,0 +1,150 @@
+.title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.address {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.address b {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.addressRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-soft);
+}
+
+.copyIconBtn {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 2px;
+  display: inline-flex;
+}
+
+.mapPlaceholder {
+  height: 170px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #e9edda, #d7ddc2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #8b9a76;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.navButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.navBtn {
+  display: block;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 6px;
+  font-size: 13.5px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.infoCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.infoBlock {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.infoBlockLast {
+  margin-bottom: 20px;
+}
+
+.infoTitle {
+  font-family: "Noto Serif KR", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rose-deep);
+  margin: 0 0 8px;
+}
+
+.infoText {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.busStop {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.busList {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.carRoute {
+  margin-bottom: 16px;
+}
+
+.carRoute:last-child {
+  margin-bottom: 0;
+}
+
+.carRouteTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.carSteps {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.navAddressRow {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-bottom: 20px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.navAddressRow b {
+  color: var(--ink);
+}

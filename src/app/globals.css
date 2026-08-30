@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Great+Vibes&display=swap");
+
+:root {
+  --ink: #2f3a2c;
+  --ink-soft: #748169;
+  --ivory: #f8f9f1;
+  --blush: #e6ecd8;
+  --blush-2: #d4dcbf;
+  --rose: #6f8f5c;
+  --rose-deep: #4c6b3f;
+  --wine: #28371f;
+  --gold: #b9924b;
+  --line: rgba(47, 58, 44, 0.14);
+  --shadow: 0 20px 60px rgba(40, 55, 31, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  background: var(--ivory);
+  min-height: 100vh;
+}
+
+svg {
+  display: block;
+}

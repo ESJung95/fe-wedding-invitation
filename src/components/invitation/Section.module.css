@@ -1,0 +1,22 @@
+.sec {
+  padding: 56px 26px;
+  border-bottom: 1px solid var(--line);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--rose-deep);
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 28px;
+}
