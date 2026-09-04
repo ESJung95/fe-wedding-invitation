@@ -14,7 +14,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--rose-deep);
-  margin: 0 0 28px;
+  margin: 0 0 10px;
 }
 
 .envelope {
@@ -34,44 +34,72 @@
 }
 
 .addressee {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  font-family: "Noto Serif KR", serif;
-  font-size: 12.5px;
-  color: var(--ink);
+  font-size: 14px;
+  color: var(--rose-deep);
+  margin: 0 0 24px;
 }
 
 .to {
-  font-size: 10px;
-  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rose-deep);
   margin-right: 4px;
 }
 
-.flap {
+.flapRight,
+.flapBottom,
+.flapLeft {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease 0.1s;
+}
+
+.flapRight {
+  clip-path: polygon(100% 0%, 100% 100%, 50% 50%);
+  background: #c7d1af;
+}
+
+.flapBottom {
+  clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
+  background: var(--blush);
+}
+
+.flapLeft {
+  clip-path: polygon(0% 0%, 0% 100%, 50% 50%);
+  background: var(--blush-2);
+}
+
+.sideFlapHidden {
+  opacity: 0;
+}
+
+.flapTop {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
-  border-left: 130px solid transparent;
-  border-right: 130px solid transparent;
-  border-top: 92px solid var(--rose);
+  width: 260px;
+  height: 176px;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+  background: var(--rose);
   pointer-events: none;
   transform-origin: top center;
   backface-visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.6, 0, 0.2, 1);
+  transition:
+    transform 0.5s cubic-bezier(0.6, 0, 0.2, 1),
+    opacity 0.4s ease 0.1s;
+  z-index: 1;
 }
 
 .flapOpen {
   transform: rotateX(180deg);
+  opacity: 0;
 }
 
 .seal {
   position: absolute;
-  top: 74px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -101,10 +129,4 @@
   font-size: 13px;
   color: var(--ink-soft);
   line-height: 1.7;
-}
-
-.hint {
-  margin-top: 16px;
-  font-size: 11px;
-  color: #a3b18f;
 }

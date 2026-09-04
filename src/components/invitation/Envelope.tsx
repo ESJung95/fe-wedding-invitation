@@ -19,15 +19,27 @@ export default function Envelope({
     <div className={styles.wrap}>
       <p className={styles.eyebrow}>{dateDisplay}</p>
 
+      {guestName && (
+        <p className={styles.addressee}>
+          <span className={styles.to}>TO.</span> {guestName} 님
+        </p>
+      )}
+
       <div className={styles.envelope}>
         <div className={styles.body}>
-          {guestName && (
-            <div className={styles.addressee}>
-              <span className={styles.to}>TO.</span> {guestName} 님께
-            </div>
-          )}
+          <div
+            className={`${styles.flapRight} ${isOpening ? styles.sideFlapHidden : ""}`}
+          />
+          <div
+            className={`${styles.flapBottom} ${isOpening ? styles.sideFlapHidden : ""}`}
+          />
+          <div
+            className={`${styles.flapLeft} ${isOpening ? styles.sideFlapHidden : ""}`}
+          />
         </div>
-        <div className={`${styles.flap} ${isOpening ? styles.flapOpen : ""}`} />
+        <div
+          className={`${styles.flapTop} ${isOpening ? styles.flapOpen : ""}`}
+        />
         <button
           className={`${styles.seal} ${isOpening ? styles.sealHidden : ""}`}
           onClick={onOpen}
@@ -43,7 +55,6 @@ export default function Envelope({
         <br />
         귀한 걸음 하시어 축복해 주시면 감사하겠습니다
       </p>
-      <div className={styles.hint}>도장을 클릭하면 청첩장이 열립니다</div>
     </div>
   );
 }

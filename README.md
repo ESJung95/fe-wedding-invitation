@@ -2,6 +2,16 @@
 
 Next.js(App Router) + TypeScript + CSS Modules로 만든 모바일 청첩장 프로젝트입니다.
 
+## 환경변수
+
+`.env.example`을 참고해서 `.env.local`을 만들고 백엔드 API 주소를 넣습니다. `.env.local`은 Git에 커밋되지 않습니다.
+
+```
+INVITATION_API_BASE_URL=http://your-backend-host:port
+```
+
+이 값은 서버 컴포넌트에서만 사용되며 브라우저에 노출되지 않습니다.
+
 ## 로컬 개발
 
 ```
@@ -25,9 +35,13 @@ npm run start
 
 모든 문구, 날짜, 장소, 계좌번호 등은 `src/data/invitationContent.ts` 한 파일에서 관리합니다. 이 파일만 수정하면 화면 전반에 반영됩니다.
 
-## 하객별 개인화 링크 추가
+## 하객별 개인화 링크
 
-`src/data/guests.ts`의 `guestMap`에 `slug: { name: "이름" }` 형태로 항목을 추가하면 `/invite/[slug]`로 접속했을 때 해당 이름이 노출됩니다. 지금은 정적 매핑이며, 나중에 백엔드가 준비되면 `getGuestBySlug` 함수 내부만 API 호출로 교체하면 됩니다.
+`/invite/[slug]`로 접속하면 `src/data/guests.ts`의 `getGuestBySlug`가 slug 값을 token으로 백엔드(`GET /api/invitation`)에 조회합니다. 하객 등록과 token 발급은 백엔드 관리자 API(`/api/admin/guests`)에서 이루어지며, 프론트엔드에서 직접 수정할 부분은 없습니다.
+
+- 개인화 링크(`/invite/{token}`)는 accessType을 LINK로 고정해서 조회합니다.
+- token 없이 접속하는 기본 경로(`/invite`)는 종이 청첩장 QR코드용으로 간주해 accessType을 QR로 고정하고, 조회 기록만 남기며 이름은 표시하지 않습니다.
+- token이 유효하지 않거나 API 호출이 실패하면 별도 에러 화면 없이 기본(비개인화) 화면으로 대체됩니다.
 
 ## 갤러리 이미지 교체
 
