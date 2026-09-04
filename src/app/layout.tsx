@@ -1,9 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { invitationContent } from "@/data/invitationContent";
+
+const shareTitle = "이기한 ♥ 정은선 결혼식에 초대합니다.";
+const shareDescription = `${invitationContent.weddingDateDisplay} ${invitationContent.weddingTimeDisplay}`;
 
 export const metadata: Metadata = {
-  title: "기한 · 은선 결혼식에 초대합니다",
-  description: "2026년 12월 6일 일요일, 라온제나 강남에서 올리는 결혼식에 소중한 분들을 초대합니다.",
+  metadataBase: new URL(invitationContent.shareLinkBase),
+  title: shareTitle,
+  description: shareDescription,
+  openGraph: {
+    title: shareTitle,
+    description: shareDescription,
+    images: [
+      {
+        url: invitationContent.heroImage,
+        width: 1200,
+        height: 1800,
+        alt: shareTitle,
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
