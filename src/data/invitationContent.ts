@@ -72,9 +72,9 @@ export const invitationContent: InvitationContent = {
       { who: "신랑 기한", bank: "국민은행", number: "000000-00-000000" },
     ],
     bride: [
-      { who: "신부 아버지 정영철", bank: "하나은행", number: "000-000000-00000" },
-      { who: "신부 어머니 양현숙", bank: "하나은행", number: "000-000000-00001" },
-      { who: "신부 은선", bank: "우리은행", number: "0000-000-000000" },
+      { who: "신부 아버지 정영철", bank: "국민은행", number: "623501-01-445879" },
+      { who: "신부 어머니 양현숙", bank: "국민은행", number: "283-21-0010-170" },
+      { who: "신부 은선", bank: "국민은행", number: "623502-01-394132" },
     ],
   },
   galleryImages: [

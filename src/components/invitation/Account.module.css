@@ -64,8 +64,8 @@
 .flowerNote {
   text-align: center;
   font-size: 16px;
-  font-weight: 600;
-  color: var(--rose-deep);
+  font-weight: normal;
+  color: var(--ink);
   line-height: 1.7;
   margin: -8px 0 26px;
 }

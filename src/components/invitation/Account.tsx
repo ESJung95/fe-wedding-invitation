@@ -24,7 +24,8 @@ function AccountAccordion({
 
   async function handleCopy(e: React.MouseEvent, value: string) {
     e.stopPropagation();
-    const result = await copyAccountNumber(value);
+    const digitsOnly = value.replace(/[^0-9]/g, "");
+    const result = await copyAccountNumber(digitsOnly);
     showToast(result.message);
   }
 
@@ -53,7 +54,7 @@ function AccountAccordion({
             </div>
             <button
               className={styles.copyBtn}
-              onClick={(e) => handleCopy(e, `${account.bank} ${account.number}`)}
+              onClick={(e) => handleCopy(e, account.number)}
             >
               복사
             </button>

@@ -1,7 +1,8 @@
 .title {
   font-family: "Noto Serif KR", serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
+  color: var(--rose-deep);
   text-align: center;
   margin: 0 0 28px;
 }
