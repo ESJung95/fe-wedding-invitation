@@ -55,7 +55,10 @@
 }
 
 .navBtn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   text-align: center;
   border: 1px solid var(--line);
   background: #fff;
@@ -64,6 +67,12 @@
   font-size: 13.5px;
   color: var(--ink);
   text-decoration: none;
+}
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .infoCard {

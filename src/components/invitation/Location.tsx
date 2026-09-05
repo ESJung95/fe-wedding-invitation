@@ -58,12 +58,15 @@ export default function Location({ venue, appName }: LocationProps) {
 
       <div className={styles.navButtons}>
         <a className={styles.navBtn} href={buildTmapLink(mapTarget)}>
+          <img src="/images/icons/tmap.svg" alt="" className={styles.navIcon} />
           티맵
         </a>
         <a className={styles.navBtn} href={buildKakaoMapLink(mapTarget)}>
+          <img src="/images/icons/kakaomap.png" alt="" className={styles.navIcon} />
           카카오맵
         </a>
         <a className={styles.navBtn} href={buildNaverMapLink(mapTarget, appName)}>
+          <img src="/images/icons/navermap.webp" alt="" className={styles.navIcon} />
           네이버지도
         </a>
       </div>
