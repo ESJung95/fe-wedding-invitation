@@ -13,81 +13,111 @@
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--rose-deep);
+  color: #000;
   margin: 0 0 10px;
-}
-
-.envelope {
-  position: relative;
-  width: 260px;
-  perspective: 700px;
-}
-
-.body {
-  position: relative;
-  width: 260px;
-  height: 176px;
-  background: var(--blush);
-  border-radius: 4px;
-  box-shadow: 0 20px 40px rgba(40, 55, 31, 0.2);
-  overflow: hidden;
 }
 
 .addressee {
   font-size: 14px;
-  color: var(--rose-deep);
+  color: #000;
   margin: 0 0 24px;
 }
 
 .to {
   font-size: 11px;
   font-weight: 600;
-  color: var(--rose-deep);
+  color: #000;
   margin-right: 4px;
 }
 
-.flapRight,
-.flapBottom,
-.flapLeft {
+/* ---------- 봉투 ---------- */
+
+.envelope {
+  position: relative;
+  width: 260px;
+  height: 176px;
+  perspective: 900px;
+}
+
+.body {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #efe8d8;
+  box-shadow:
+    0 10px 24px rgba(80, 65, 40, 0.16),
+    0 1px 3px rgba(80, 65, 40, 0.1);
+}
+
+/* 봉투 안쪽. 덮개가 사라질 때 드러난다 */
+.inside {
+  position: absolute;
+  inset: 0;
+  background: #d9cfb8;
+  box-shadow: inset 0 4px 10px rgba(80, 65, 40, 0.22);
+}
+
+/* 래퍼는 위치와 그림자, 면은 모양과 색을 담당한다.
+   clip-path와 filter를 한 요소에 두면 그림자가 잘리므로 분리한다 */
+.flapWrap {
   position: absolute;
   inset: 0;
   transition: opacity 0.4s ease 0.1s;
 }
 
-.flapRight {
-  clip-path: polygon(100% 0%, 100% 100%, 50% 50%);
-  background: #c7d1af;
+.face {
+  position: absolute;
+  inset: 0;
 }
 
-.flapBottom {
-  clip-path: polygon(0% 100%, 100% 100%, 50% 50%);
-  background: var(--blush);
-}
-
-.flapLeft {
-  clip-path: polygon(0% 0%, 0% 100%, 50% 50%);
-  background: var(--blush-2);
-}
-
-.sideFlapHidden {
+.flapHidden {
   opacity: 0;
 }
 
-.flapTop {
+.flapLeftWrap {
+  filter: drop-shadow(1px 0 0 rgba(80, 65, 40, 0.14));
+}
+
+.flapRightWrap {
+  filter: drop-shadow(-1px 0 0 rgba(80, 65, 40, 0.14));
+}
+
+.flapBottomWrap {
+  filter: drop-shadow(0 -1px 1px rgba(80, 65, 40, 0.2));
+}
+
+.flapLeft {
+  clip-path: polygon(0% 0%, 0% 100%, 50% 60%);
+  background: #f2ebdc;
+}
+
+.flapRight {
+  clip-path: polygon(100% 0%, 100% 100%, 50% 60%);
+  background: #efe8d7;
+}
+
+/* 덮개 끝을 살짝 둥글게. 좌표는 260x176 기준 px */
+.flapBottom {
+  clip-path: path("M0 176 L260 176 L134.5 75.5 Q130 72 125.5 75.5 Z");
+  background: #f5efe1;
+}
+
+.flapTopWrap {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 176px;
-  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
-  background: var(--rose);
-  pointer-events: none;
+  inset: 0;
   transform-origin: top center;
   backface-visibility: hidden;
+  filter: drop-shadow(0 2px 2px rgba(80, 65, 40, 0.22));
   transition:
     transform 0.5s cubic-bezier(0.6, 0, 0.2, 1),
     opacity 0.4s ease 0.1s;
-  z-index: 1;
+  z-index: 2;
+}
+
+.flapTop {
+  clip-path: path("M0 0 L260 0 L135 106 Q130 110.5 125 106 Z");
+  background: #f7f1e4;
 }
 
 .flapOpen {
@@ -95,28 +125,58 @@
   opacity: 0;
 }
 
+/* ---------- 금선 모노그램 ---------- */
+
 .seal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(160deg, var(--gold) 0%, #8f6c2b 100%);
-  color: #fff;
-  font-family: "Noto Serif KR", serif;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  margin: 0;
   border: none;
+  background: none;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(185, 146, 75, 0.4);
-  z-index: 2;
-  transition: opacity 0.2s ease;
+  z-index: 3;
+  /* 크림 종이 위에서 잘 보이도록 --gold보다 한 단계 진한 금색 */
+  color: #a8823a;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+}
+
+.sealArt {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* 원 안을 종이보다 살짝 밝게 채워 금선이 배경에 묻히지 않게 한다 */
+.sealDisc {
+  fill: #faf6ec;
+}
+
+.sealText {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 600;
+  fill: #8a6a2c;
+}
+
+.seal:hover:not(:disabled) {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.seal:active:not(:disabled) {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+.seal:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 4px;
+  border-radius: 50%;
 }
 
 .sealHidden {
@@ -127,6 +187,14 @@
 .sub {
   margin: 28px 0 0;
   font-size: 13px;
-  color: var(--ink-soft);
+  color: #000;
   line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flapWrap,
+  .flapTopWrap,
+  .seal {
+    transition-duration: 0.01s;
+  }
 }
