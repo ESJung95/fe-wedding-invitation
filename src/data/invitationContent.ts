@@ -53,8 +53,8 @@ export const invitationContent: InvitationContent = {
     ],
     navAddress: "서울시 강남구 학동로47길 5",
     parking: "건물 내 주차장 2시간 무료\n(7층 연회장에서 차량 등록 필수, 초과 10분당 800원)",
-    latitude: 37.5175,
-    longitude: 127.0473,
+    latitude: 37.5169137,
+    longitude: 127.0385717,
   },
   greeting: {
     message:

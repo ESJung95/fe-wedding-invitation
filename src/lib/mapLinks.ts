@@ -25,7 +25,7 @@ export function buildTmapFallbackLink(): string {
 
 export function buildKakaoMapLink(target: MapLinkTarget): string {
   const { latitude, longitude } = target;
-  return `kakaomap://route?ep=${latitude},${longitude}&by=CAR`;
+  return `kakaomap://route?ep=${latitude},${longitude}&by=car`;
 }
 
 /**
@@ -53,6 +53,8 @@ export function buildNaverMapFallbackLink(): string {
  * 앱 스킴으로 이동을 시도하고, 일정 시간이 지나도 화면이 그대로면
  * (= 앱이 설치되어 있지 않아 실행되지 않은 것으로 간주) 대체 링크로 이동합니다.
  * 앱이 정상적으로 열리면 브라우저 탭이 백그라운드로 전환되므로 대체 이동은 취소됩니다.
+ * 카카오톡 인앱 브라우저 등에서 현재 청첩장 페이지가 사라지지 않도록,
+ * location.href 대신 새 창(window.open)으로 시도합니다.
  */
 export function openMapLink(schemeUrl: string, fallbackUrl: string) {
   let didHide = false;
@@ -65,12 +67,12 @@ export function openMapLink(schemeUrl: string, fallbackUrl: string) {
 
   document.addEventListener("visibilitychange", onVisibilityChange);
 
-  window.location.href = schemeUrl;
+  window.open(schemeUrl, "_blank");
 
   setTimeout(() => {
     document.removeEventListener("visibilitychange", onVisibilityChange);
     if (!didHide) {
-      window.location.href = fallbackUrl;
+      window.open(fallbackUrl, "_blank");
     }
   }, 1500);
 }
