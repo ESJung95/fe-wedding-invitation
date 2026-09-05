@@ -77,6 +77,56 @@ export const invitationContent: InvitationContent = {
       { relation: "신부", name: "정은선", bank: "국민은행", number: "623502-01-394132" },
     ],
   },
+  venueGuide: [
+    {
+      type: "photo",
+      id: "photobooth",
+      label: "포토부스",
+      image: "/images/venue/photozone.jpg",
+      imageWidth: 1000,
+      imageHeight: 667,
+      description:
+        "엘리베이터에서 내리시면 좌측 포토존에 위치해 있습니다.\n횟수 제한 없이 촬영하실 수 있습니다.",
+    },
+    {
+      type: "photo",
+      id: "brideroom",
+      label: "신부대기실",
+      image: "/images/venue/bride.jpg",
+      imageWidth: 1000,
+      imageHeight: 667,
+      description: "엘리베이터에서 내리시면 우측 가장 안쪽에 있습니다.",
+    },
+    {
+      type: "photo",
+      id: "hall",
+      label: "연회장",
+      image: "/images/venue/restaurant.jpg",
+      imageWidth: 1000,
+      imageHeight: 667,
+      description:
+        "연회장은 7층에 있습니다.\n이용 시간은 12:00 ~ 14:00 이며,\n예식 30분 전부터 이용 가능합니다.",
+    },
+    {
+      type: "info",
+      id: "atm-parking",
+      label: "ATM / 주차등록",
+      items: [
+        {
+          title: "ATM",
+          text: "엘리베이터에서 내리시면 우측 축의대 맞은편에 있습니다.",
+        },
+        {
+          title: "주차 등록",
+          text: "7층 연회장 입구에서 차량 등록을 해주세요.\n차량을 미등록시 출차가 불가능합니다.\n2시간 무료입니다.",
+        },
+        {
+          title: "엘리베이터 안내",
+          text: "엘리베이터가 협소하여 이용에 시간이 걸릴 수 있습니다.\n여유 있게 오시기를 부탁드립니다.",
+        },
+      ],
+    },
+  ],
   galleryImages: [
     { src: "/images/gallery/gallery-01.jpg", width: 3379, height: 5069 },
     { src: "/images/gallery/gallery-02.jpg", width: 3648, height: 5472 },

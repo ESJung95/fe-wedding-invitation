@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     description: shareDescription,
     images: [
       {
-        url: invitationContent.heroImage,
+        url: "/images/share-thumbnail.jpg",
         width: 1200,
-        height: 1838,
+        height: 799,
         alt: shareTitle,
       },
     ],

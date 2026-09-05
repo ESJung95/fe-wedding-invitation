@@ -1,0 +1,72 @@
+.tabBar {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 10px 4px;
+  font-size: 12.5px;
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tabBtnActive {
+  color: var(--rose-deep);
+  border-bottom: 2px solid var(--rose-deep);
+  font-weight: 600;
+}
+
+.photoPanel {
+  text-align: center;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.7;
+  margin: 10px 0 0;
+}
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.infoItem {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.infoTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--rose-deep);
+  margin: 0 0 6px;
+}
+
+.infoText {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.7;
+  margin: 6px 0 0;
+}

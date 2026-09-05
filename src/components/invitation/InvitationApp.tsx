@@ -8,6 +8,7 @@ import Summary from "./Summary";
 import Calendar from "./Calendar";
 import Greeting from "./Greeting";
 import Location from "./Location";
+import VenueGuide from "./VenueGuide";
 import Message from "./Message";
 import Account from "./Account";
 import Gallery from "./Gallery";
@@ -92,6 +93,7 @@ export default function InvitationApp({ content, guestName }: InvitationAppProps
             venue={content.venue}
             appName={content.shareLinkBase}
           />
+          <VenueGuide tabs={content.venueGuide} />
           <Message />
           <Account
             accounts={content.accounts}

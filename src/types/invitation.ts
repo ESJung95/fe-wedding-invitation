@@ -57,9 +57,34 @@ export interface InvitationContent {
   heroImage: string;
   closingImage: string;
   accounts: AccountGroup;
+  venueGuide: VenueGuideTab[];
   galleryImages: GalleryImage[];
   shareLinkBase: string;
 }
+
+export interface VenueGuidePhotoTab {
+  type: "photo";
+  id: string;
+  label: string;
+  image: string;
+  imageWidth: number;
+  imageHeight: number;
+  description: string;
+}
+
+export interface VenueGuideInfoItem {
+  title: string;
+  text: string;
+}
+
+export interface VenueGuideInfoTab {
+  type: "info";
+  id: string;
+  label: string;
+  items: VenueGuideInfoItem[];
+}
+
+export type VenueGuideTab = VenueGuidePhotoTab | VenueGuideInfoTab;
 
 export interface GuestInfo {
   name: string;
