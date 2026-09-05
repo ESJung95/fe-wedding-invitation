@@ -52,9 +52,9 @@ export function buildNaverMapFallbackLink(): string {
 /**
  * 앱 스킴으로 이동을 시도하고, 일정 시간이 지나도 화면이 그대로면
  * (= 앱이 설치되어 있지 않아 실행되지 않은 것으로 간주) 대체 링크로 이동합니다.
- * 앱이 정상적으로 열리면 브라우저 탭이 백그라운드로 전환되므로 대체 이동은 취소됩니다.
  * 카카오톡 인앱 브라우저 등에서 현재 청첩장 페이지가 사라지지 않도록,
- * location.href 대신 새 창(window.open)으로 시도합니다.
+ * 커스텀 스킴(tmap://, kakaomap:// 등) 시도는 화면에 보이지 않는 iframe으로 하고,
+ * 대체 링크(스토어/웹, http 주소)만 새 창으로 엽니다.
  */
 export function openMapLink(schemeUrl: string, fallbackUrl: string) {
   let didHide = false;
@@ -67,10 +67,19 @@ export function openMapLink(schemeUrl: string, fallbackUrl: string) {
 
   document.addEventListener("visibilitychange", onVisibilityChange);
 
-  window.open(schemeUrl, "_blank");
+  const iframe = document.createElement("iframe");
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
+
+  try {
+    iframe.src = schemeUrl;
+  } catch {
+    // 일부 브라우저는 커스텀 스킴을 iframe에 넣는 것 자체를 막을 수 있습니다.
+  }
 
   setTimeout(() => {
     document.removeEventListener("visibilitychange", onVisibilityChange);
+    document.body.removeChild(iframe);
     if (!didHide) {
       window.open(fallbackUrl, "_blank");
     }
