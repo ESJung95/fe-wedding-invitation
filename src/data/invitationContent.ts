@@ -14,6 +14,7 @@ export const invitationContent: InvitationContent = {
   weddingTimeDisplay: "오후 12시 30분",
   venue: {
     name: "라온제나 강남 8층 플로렌스홀",
+    mapSearchName: "라온제나 강남",
     address: "서울특별시 강남구 학동로47길 5 (논현2동 117-7)",
     subwayLines: [
       { name: "7호선", icon: "/images/icons/line-7-badge.jpg" },
@@ -51,7 +52,7 @@ export const invitationContent: InvitationContent = {
       },
     ],
     navAddress: "서울시 강남구 학동로47길 5",
-    parking: "건물 내 주차장 2시간 무료\n(7층 연회장 차량 등록 필수, 초과 10분당 800원)",
+    parking: "건물 내 주차장 2시간 무료\n(7층 연회장에서 차량 등록 필수, 초과 10분당 800원)",
     latitude: 37.5175,
     longitude: 127.0473,
   },
@@ -146,4 +147,7 @@ export const invitationContent: InvitationContent = {
     { src: "/images/gallery/gallery-12.jpg", width: 1352, height: 2000 },
   ],
   shareLinkBase: "https://kihan-eunsun.site",
+  shareTitle: "이기한 ❤️ 정은선 결혼식에 초대합니다",
+  shareImage: "/images/share-thumbnail.jpg",
+  kakaoJsKey: "5129d5519195d7b8fa5a3ceaece0879b",
 };

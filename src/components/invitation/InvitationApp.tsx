@@ -100,7 +100,13 @@ export default function InvitationApp({ content, guestName }: InvitationAppProps
             flowerWreathNote={content.flowerWreathNote}
           />
           <Gallery images={content.galleryImages} />
-          <Share shareLink={content.shareLinkBase} />
+          <Share
+            shareLink={content.shareLinkBase}
+            kakaoJsKey={content.kakaoJsKey}
+            shareTitle={content.shareTitle}
+            shareDescription={`${content.weddingDateDisplay} ${content.weddingTimeDisplay}`}
+            shareImage={`${content.shareLinkBase}${content.shareImage}`}
+          />
           <Footer
             groomName={content.couple.groomName}
             brideName={content.couple.brideName}

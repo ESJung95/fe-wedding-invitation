@@ -7,7 +7,15 @@ import { useToast } from "./ToastContext";
 import type { LocationInfo } from "@/types/invitation";
 import { getMapConfig } from "@/lib/integrations/kakaoMap";
 import { copyToClipboard } from "@/lib/clipboard";
-import { buildKakaoMapLink, buildNaverMapLink, buildTmapLink } from "@/lib/mapLinks";
+import {
+  buildKakaoMapLink,
+  buildKakaoMapFallbackLink,
+  buildNaverMapLink,
+  buildNaverMapFallbackLink,
+  buildTmapLink,
+  buildTmapFallbackLink,
+  openMapLink,
+} from "@/lib/mapLinks";
 
 interface LocationProps {
   venue: LocationInfo;
@@ -25,7 +33,7 @@ export default function Location({ venue, appName }: LocationProps) {
   });
 
   const mapTarget = {
-    name: venue.name,
+    name: venue.mapSearchName,
     latitude: venue.latitude,
     longitude: venue.longitude,
   };
@@ -57,18 +65,42 @@ export default function Location({ venue, appName }: LocationProps) {
       </div>
 
       <div className={styles.navButtons}>
-        <a className={styles.navBtn} href={buildTmapLink(mapTarget)}>
+        <button
+          type="button"
+          className={styles.navBtn}
+          onClick={() =>
+            openMapLink(buildTmapLink(mapTarget), buildTmapFallbackLink())
+          }
+        >
           <img src="/images/icons/tmap.svg" alt="" className={styles.navIcon} />
           티맵
-        </a>
-        <a className={styles.navBtn} href={buildKakaoMapLink(mapTarget)}>
+        </button>
+        <button
+          type="button"
+          className={styles.navBtn}
+          onClick={() =>
+            openMapLink(
+              buildKakaoMapLink(mapTarget),
+              buildKakaoMapFallbackLink(mapTarget)
+            )
+          }
+        >
           <img src="/images/icons/kakaomap.png" alt="" className={styles.navIcon} />
           카카오맵
-        </a>
-        <a className={styles.navBtn} href={buildNaverMapLink(mapTarget, appName)}>
+        </button>
+        <button
+          type="button"
+          className={styles.navBtn}
+          onClick={() =>
+            openMapLink(
+              buildNaverMapLink(mapTarget, appName),
+              buildNaverMapFallbackLink()
+            )
+          }
+        >
           <img src="/images/icons/navermap.webp" alt="" className={styles.navIcon} />
           네이버지도
-        </a>
+        </button>
       </div>
 
       <div className={styles.mapPlaceholder}>

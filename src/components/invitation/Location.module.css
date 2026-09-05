@@ -65,8 +65,10 @@
   border-radius: 10px;
   padding: 12px 6px;
   font-size: 13.5px;
+  font-family: inherit;
   color: var(--ink);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .navIcon {

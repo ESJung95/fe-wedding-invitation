@@ -7,14 +7,32 @@ import { copyShareLink, shareToKakao } from "@/lib/integrations/kakaoShare";
 
 interface ShareProps {
   shareLink: string;
+  kakaoJsKey: string;
+  shareTitle: string;
+  shareDescription: string;
+  shareImage: string;
 }
 
-export default function Share({ shareLink }: ShareProps) {
+export default function Share({
+  shareLink,
+  kakaoJsKey,
+  shareTitle,
+  shareDescription,
+  shareImage,
+}: ShareProps) {
   const { showToast } = useToast();
 
   async function handleKakaoShare() {
-    const result = await shareToKakao();
-    showToast(result.message);
+    const result = await shareToKakao({
+      jsKey: kakaoJsKey,
+      title: shareTitle,
+      description: shareDescription,
+      imageUrl: shareImage,
+      link: shareLink,
+    });
+    if (result.message) {
+      showToast(result.message);
+    }
   }
 
   async function handleCopyLink() {

@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { invitationContent } from "@/data/invitationContent";
 
-const shareTitle = "이기한 ❤️ 정은선 결혼식에 초대합니다";
 const shareDescription = `${invitationContent.weddingDateDisplay} ${invitationContent.weddingTimeDisplay}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(invitationContent.shareLinkBase),
-  title: shareTitle,
+  title: invitationContent.shareTitle,
   description: shareDescription,
   openGraph: {
-    title: shareTitle,
+    title: invitationContent.shareTitle,
     description: shareDescription,
     images: [
       {
-        url: "/images/share-thumbnail.jpg",
+        url: invitationContent.shareImage,
         width: 1200,
         height: 799,
-        alt: shareTitle,
+        alt: invitationContent.shareTitle,
       },
     ],
     locale: "ko_KR",
@@ -28,7 +28,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.3/kakao.min.js"
+          strategy="beforeInteractive"
+        />
+      </body>
     </html>
   );
 }

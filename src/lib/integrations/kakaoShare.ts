@@ -2,17 +2,75 @@ import { copyToClipboard, type IntegrationResult } from "@/lib/clipboard";
 
 export type { IntegrationResult };
 
-/**
- * 카카오톡 공유 연동 스텁입니다.
- * 백엔드/카카오 SDK 연동 시 이 함수 내부만 실제 SDK 호출로 교체하면 됩니다.
- * 호출하는 컴포넌트 쪽 코드는 수정할 필요가 없습니다.
- */
-export async function shareToKakao(): Promise<IntegrationResult> {
-  // TODO: 카카오 SDK(Kakao.Share.sendDefault 등) 연동
-  return {
-    status: "stub",
-    message: "실제 서비스에서는 카카오톡 공유 화면으로 연결됩니다",
+export interface KakaoShareContent {
+  jsKey: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+}
+
+interface KakaoGlobal {
+  isInitialized: () => boolean;
+  init: (key: string) => void;
+  Share: {
+    sendDefault: (options: Record<string, unknown>) => void;
   };
+}
+
+declare global {
+  interface Window {
+    Kakao?: KakaoGlobal;
+  }
+}
+
+function getInitializedKakao(jsKey: string): KakaoGlobal | null {
+  if (typeof window === "undefined" || !window.Kakao) return null;
+  if (!window.Kakao.isInitialized()) {
+    window.Kakao.init(jsKey);
+  }
+  return window.Kakao;
+}
+
+/**
+ * 카카오 JavaScript SDK(Kakao.Share.sendDefault)로 실제 공유 카드를 띄웁니다.
+ * SDK 스크립트는 layout.tsx에서 미리 불러옵니다.
+ */
+export async function shareToKakao(
+  content: KakaoShareContent
+): Promise<IntegrationResult> {
+  const kakao = getInitializedKakao(content.jsKey);
+
+  if (!kakao) {
+    return {
+      status: "error",
+      message: "카카오톡 공유를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요",
+    };
+  }
+
+  kakao.Share.sendDefault({
+    objectType: "feed",
+    content: {
+      title: content.title,
+      description: content.description,
+      imageUrl: content.imageUrl,
+      link: {
+        mobileWebUrl: content.link,
+        webUrl: content.link,
+      },
+    },
+    buttons: [
+      {
+        title: "청첩장 보기",
+        link: {
+          mobileWebUrl: content.link,
+          webUrl: content.link,
+        },
+      },
+    ],
+  });
+
+  return { status: "success", message: "" };
 }
 
 export async function copyShareLink(link: string): Promise<IntegrationResult> {

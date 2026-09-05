@@ -33,6 +33,7 @@ export interface BusLine {
 
 export interface LocationInfo {
   name: string;
+  mapSearchName: string;
   address: string;
   subwayLines: SubwayLine[];
   subwayDetail: string;
@@ -72,6 +73,9 @@ export interface InvitationContent {
   venueGuide: VenueGuideTab[];
   galleryImages: GalleryImage[];
   shareLinkBase: string;
+  shareTitle: string;
+  shareImage: string;
+  kakaoJsKey: string;
 }
 
 export interface VenueGuidePhotoTab {

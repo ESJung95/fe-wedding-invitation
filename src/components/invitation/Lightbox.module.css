@@ -37,26 +37,35 @@
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
+  z-index: 5;
 }
 
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.45);
   border: none;
+  border-radius: 50%;
   color: #fff;
-  font-size: 32px;
-  padding: 6px 16px;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0;
   cursor: pointer;
+  z-index: 5;
 }
 
 .prev {
-  left: 0;
+  left: 10px;
 }
 
 .next {
-  right: 0;
+  right: 10px;
 }
 
 .count {
