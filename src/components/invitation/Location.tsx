@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import sectionStyles from "./Section.module.css";
 import styles from "./Location.module.css";
 import { useToast } from "./ToastContext";
@@ -55,14 +56,6 @@ export default function Location({ venue, appName }: LocationProps) {
         </span>
       </div>
 
-      <div className={styles.mapPlaceholder}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b9a76" strokeWidth="1.6">
-          <path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z" />
-          <circle cx="12" cy="9" r="2.4" />
-        </svg>
-        지도 영역 (카카오맵 연동 예정)
-      </div>
-
       <div className={styles.navButtons}>
         <a className={styles.navBtn} href={buildTmapLink(mapTarget)}>
           티맵
@@ -75,10 +68,33 @@ export default function Location({ venue, appName }: LocationProps) {
         </a>
       </div>
 
+      <div className={styles.mapPlaceholder}>
+        <Image
+          src="/images/venue/map.jpg"
+          alt={`${venue.name} 약도`}
+          width={1000}
+          height={707}
+          sizes="(max-width: 480px) 100vw, 480px"
+          className={styles.mapImage}
+        />
+      </div>
+
       <div className={styles.infoCard}>
         <div className={styles.infoBlock}>
           <p className={styles.infoTitle}>지하철</p>
-          <p className={styles.infoText}>{venue.subway}</p>
+          <p className={styles.infoText}>
+            <span className={styles.subwayRow}>
+              {venue.subwayLines.map((line) => (
+                <img
+                  key={line.name}
+                  src={line.icon}
+                  alt={line.name}
+                  className={styles.lineIcon}
+                />
+              ))}
+              <span>{venue.subwayDetail}</span>
+            </span>
+          </p>
         </div>
 
         <div className={styles.infoBlock}>
@@ -86,32 +102,21 @@ export default function Location({ venue, appName }: LocationProps) {
           <p className={styles.busStop}>{venue.busStop}</p>
           <ul className={styles.busList}>
             {venue.busLines.map((line) => (
-              <li key={line}>{line}</li>
+              <li key={line.label} className={styles.busLine}>
+                <img src={line.icon} alt={line.label} className={styles.busIcon} />
+                {line.text}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className={styles.infoBlockLast}>
-          <p className={styles.infoTitle}>자가용</p>
-          {venue.carRoutes.map((route) => (
-            <div key={route.title} className={styles.carRoute}>
-              <p className={styles.carRouteTitle}>{route.title}</p>
-              <ol className={styles.carSteps}>
-                {route.steps.map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ol>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.navAddressRow}>
-          내비게이션 검색: <b>{venue.navAddress}</b>
-        </div>
-
-        <div className={styles.infoBlockLast}>
           <p className={styles.infoTitle}>주차</p>
-          <p className={styles.infoText}>{venue.parking}</p>
+          {venue.parking.split("\n").map((line, i) => (
+            <p key={i} className={styles.infoText}>
+              {line}
+            </p>
+          ))}
         </div>
       </div>
     </section>

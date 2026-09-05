@@ -36,17 +36,15 @@
 }
 
 .mapPlaceholder {
-  height: 170px;
   border-radius: 16px;
-  background: linear-gradient(160deg, #e9edda, #d7ddc2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #8b9a76;
-  font-size: 12px;
+  overflow: hidden;
   margin-bottom: 14px;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .navButtons {
@@ -100,6 +98,21 @@
   margin: 0;
 }
 
+.subwayRow {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lineIcon {
+  height: 20px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 4px;
+  display: block;
+}
+
 .busStop {
   font-size: 13px;
   font-weight: 700;
@@ -109,10 +122,25 @@
 
 .busList {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 0;
+  list-style: none;
   font-size: 14px;
   line-height: 1.9;
   color: var(--ink-soft);
+}
+
+.busLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.busIcon {
+  height: 20px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 4px;
 }
 
 .carRoute {

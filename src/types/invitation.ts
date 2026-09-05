@@ -20,12 +20,24 @@ export interface CarRoute {
   steps: string[];
 }
 
+export interface SubwayLine {
+  name: string;
+  icon: string;
+}
+
+export interface BusLine {
+  label: string;
+  icon: string;
+  text: string;
+}
+
 export interface LocationInfo {
   name: string;
   address: string;
-  subway: string;
+  subwayLines: SubwayLine[];
+  subwayDetail: string;
   busStop: string;
-  busLines: string[];
+  busLines: BusLine[];
   carRoutes: CarRoute[];
   navAddress: string;
   parking: string;
