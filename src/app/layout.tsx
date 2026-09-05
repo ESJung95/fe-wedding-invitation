@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { invitationContent } from "@/data/invitationContent";
 
-const shareTitle = "이기한 ♥ 정은선 결혼식에 초대합니다";
+const shareTitle = "이기한 ❤️ 정은선 결혼식에 초대합니다";
 const shareDescription = `${invitationContent.weddingDateDisplay} ${invitationContent.weddingTimeDisplay}`;
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       {
         url: invitationContent.heroImage,
         width: 1200,
-        height: 1800,
+        height: 1838,
         alt: shareTitle,
       },
     ],

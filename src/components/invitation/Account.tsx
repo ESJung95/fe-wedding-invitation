@@ -47,10 +47,13 @@ function AccountAccordion({
       </div>
       <div className={styles.body}>
         {items.map((account) => (
-          <div className={styles.row} key={account.who}>
+          <div className={styles.row} key={`${account.relation}-${account.name}`}>
             <div>
-              <div className={styles.who}>{account.who}</div>
-              {account.bank} {account.number}
+              <div className={styles.who}>{account.relation}</div>
+              <div className={styles.number}>{account.number}</div>
+              <div className={styles.bankName}>
+                {account.bank} {account.name}
+              </div>
             </div>
             <button
               className={styles.copyBtn}

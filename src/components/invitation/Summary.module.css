@@ -1,0 +1,44 @@
+.summary {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 26px;
+  text-align: center;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+}
+
+.names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: "Noto Serif KR", serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 10px;
+  color: var(--rose-deep);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.date {
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.venue {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}

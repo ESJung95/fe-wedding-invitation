@@ -2,6 +2,7 @@
   background: var(--ivory);
   max-width: 480px;
   margin: 0 auto;
+  border-bottom: 1px solid var(--line);
 }
 
 .imageWrap {

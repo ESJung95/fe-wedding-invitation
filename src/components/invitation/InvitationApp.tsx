@@ -4,6 +4,7 @@ import { useState } from "react";
 import Envelope from "./Envelope";
 import RevealCard from "./RevealCard";
 import Hero from "./Hero";
+import Summary from "./Summary";
 import Calendar from "./Calendar";
 import Greeting from "./Greeting";
 import Location from "./Location";
@@ -63,6 +64,13 @@ export default function InvitationApp({ content, guestName }: InvitationAppProps
             groomName={content.couple.groomName}
             brideName={content.couple.brideName}
             heroImage={content.heroImage}
+          />
+          <Summary
+            groomName={content.couple.groomName}
+            brideName={content.couple.brideName}
+            dateDisplay={content.weddingDateDisplay}
+            timeDisplay={content.weddingTimeDisplay}
+            venueName={content.venue.name}
           />
           <Greeting
             message={content.greeting.message}

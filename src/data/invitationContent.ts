@@ -56,25 +56,25 @@ export const invitationContent: InvitationContent = {
       "서로 다른 길을 걸어온 두 사람이\n이제 한 곳을 바라보며 걸어가려 합니다.\n바쁘시더라도 오셔서 축복해 주시면\n큰 힘이 되겠습니다.",
     groomFamily: {
       parents: "이민섭",
-      role: "의 아들",
+      role: "의 장남",
     },
     brideFamily: {
       parents: "정영철 · 양현숙",
-      role: "의 딸",
+      role: "의 장녀",
     },
   },
   flowerWreathNote: "소중한 마음만 감사히 받겠습니다.\n\n축하 화환은 정중히 사양하오니\n너그러운 양해 부탁드립니다",
   heroImage: "/images/hero-main.jpg",
-  closingImage: "/images/gallery/gallery-14.jpg",
+  closingImage: "/images/closing.jpg",
   accounts: {
     groom: [
-      { who: "신랑 아버지 이민섭", bank: "신한은행", number: "000-000-000000" },
-      { who: "신랑 기한", bank: "국민은행", number: "000000-00-000000" },
+      { relation: "신랑 아버지", name: "이민섭", bank: "하나은행", number: "348-890548-94507" },
+      { relation: "신랑", name: "이기한", bank: "토스뱅크", number: "1001-9271-8184" },
     ],
     bride: [
-      { who: "신부 아버지 정영철", bank: "국민은행", number: "623501-01-445879" },
-      { who: "신부 어머니 양현숙", bank: "국민은행", number: "283-21-0010-170" },
-      { who: "신부 은선", bank: "국민은행", number: "623502-01-394132" },
+      { relation: "신부 아버지", name: "정영철", bank: "국민은행", number: "623501-01-445879" },
+      { relation: "신부 어머니", name: "양현숙", bank: "국민은행", number: "283-21-0010-170" },
+      { relation: "신부", name: "정은선", bank: "국민은행", number: "623502-01-394132" },
     ],
   },
   galleryImages: [

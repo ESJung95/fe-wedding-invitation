@@ -4,7 +4,8 @@ export interface FamilyMember {
 }
 
 export interface BankAccount {
-  who: string;
+  relation: string;
+  name: string;
   bank: string;
   number: string;
 }

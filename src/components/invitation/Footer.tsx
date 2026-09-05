@@ -18,8 +18,8 @@ export default function Footer({
         <Image
           src={closingImage}
           alt={`${groomName} ${brideName} 마무리 인사 사진`}
-          width={3548}
-          height={4601}
+          width={1200}
+          height={1586}
           sizes="(max-width: 480px) 100vw, 480px"
           className={styles.image}
         />

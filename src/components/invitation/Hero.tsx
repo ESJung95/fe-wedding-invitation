@@ -16,7 +16,7 @@ export default function Hero({ groomName, brideName, heroImage }: HeroProps) {
           src={heroImage}
           alt={`${groomName} ${brideName} 커플 사진`}
           width={1200}
-          height={1800}
+          height={1838}
           sizes="(max-width: 480px) 100vw, 480px"
           className={styles.image}
           priority
