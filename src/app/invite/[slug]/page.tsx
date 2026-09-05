@@ -11,7 +11,14 @@ export default async function GuestInvitePage({
   const { slug } = await params;
   const guest = await getGuestBySlug(slug);
 
+  // token이 유효하지 않으면 guest는 null이지만 token은 그대로 전달합니다.
+  // 메시지 작성 시 백엔드가 token으로 하객을 다시 조회하며, 없으면 익명 메시지로 저장됩니다.
   return (
-    <InvitationApp content={invitationContent} guestName={guest?.name} />
+    <InvitationApp
+      content={invitationContent}
+      guestName={guest?.name}
+      token={slug}
+      accessType="LINK"
+    />
   );
 }

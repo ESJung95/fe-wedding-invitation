@@ -9,5 +9,5 @@ export const dynamic = "force-dynamic";
 export default async function BasicInvitePage() {
   await fetchInvitation({ accessType: "QR" });
 
-  return <InvitationApp content={invitationContent} />;
+  return <InvitationApp content={invitationContent} accessType="QR" />;
 }

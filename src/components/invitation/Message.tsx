@@ -5,14 +5,20 @@ import sectionStyles from "./Section.module.css";
 import styles from "./Message.module.css";
 import { useToast } from "./ToastContext";
 import { saveGuestMessage } from "@/lib/integrations/messages";
+import type { AccessType } from "@/lib/api/invitation";
 
-export default function Message() {
+interface MessageProps {
+  token?: string;
+  accessType: AccessType;
+}
+
+export default function Message({ token, accessType }: MessageProps) {
   const { showToast } = useToast();
   const [name, setName] = useState("");
   const [text, setText] = useState("");
 
   async function handleSubmit() {
-    const result = await saveGuestMessage({ name, text });
+    const result = await saveGuestMessage({ name, text, token, accessType });
     showToast(result.message);
     if (result.status !== "error") {
       setName("");
@@ -30,6 +36,7 @@ export default function Message() {
         <input
           type="text"
           placeholder="이름을 입력해 주세요"
+          maxLength={50}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

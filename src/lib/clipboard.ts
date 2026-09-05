@@ -1,5 +1,5 @@
 export interface IntegrationResult {
-  status: "stub" | "success" | "error";
+  status: "success" | "error";
   message: string;
 }
 

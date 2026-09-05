@@ -16,17 +16,25 @@ import Share from "./Share";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import { ToastProvider } from "./ToastContext";
+import type { AccessType } from "@/lib/api/invitation";
 import { calculateDday } from "@/lib/dday";
 import type { InvitationContent } from "@/types/invitation";
 
 interface InvitationAppProps {
   content: InvitationContent;
   guestName?: string;
+  token?: string;
+  accessType: AccessType;
 }
 
 type OpenPhase = "idle" | "flapOpen" | "cardPop" | "cardGrow" | "fadeOut";
 
-export default function InvitationApp({ content, guestName }: InvitationAppProps) {
+export default function InvitationApp({
+  content,
+  guestName,
+  token,
+  accessType,
+}: InvitationAppProps) {
   const [stage, setStage] = useState<"intro" | "invitation">("intro");
   const [openPhase, setOpenPhase] = useState<OpenPhase>("idle");
 
@@ -94,7 +102,7 @@ export default function InvitationApp({ content, guestName }: InvitationAppProps
             appName={content.shareLinkBase}
           />
           <VenueGuide tabs={content.venueGuide} />
-          <Message />
+          <Message token={token} accessType={accessType} />
           <Account
             accounts={content.accounts}
             flowerWreathNote={content.flowerWreathNote}
