@@ -52,7 +52,7 @@ export const invitationContent: InvitationContent = {
       },
     ],
     navAddress: "서울시 강남구 학동로47길 5",
-    parking: "건물 내 주차장 2시간 무료\n(7층 연회장에서 차량 등록 필수, 초과 10분당 800원)",
+    parking: "건물 내 주차장 2시간 무료 · 최대 400대\n(7층 연회장에서 차량 등록 필수, 초과 10분당 800원)",
     latitude: 37.5169137,
     longitude: 127.0385717,
   },
@@ -119,7 +119,7 @@ export const invitationContent: InvitationContent = {
       items: [
         {
           title: "ATM",
-          text: "8층 엘리베이터에서 내리시면 우측 축의대 맞은편에 있습니다.",
+          text: "8층 엘리베이터 내리신 후 우측 축의대 맞은편에 있습니다.",
         },
         {
           title: "주차 등록",
