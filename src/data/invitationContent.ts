@@ -91,7 +91,7 @@ export const invitationContent: InvitationContent = {
       imageWidth: 1000,
       imageHeight: 667,
       description:
-        "엘리베이터에서 내리시면 좌측 포토존에 위치해 있습니다.\n횟수 제한 없이 촬영하실 수 있습니다.",
+        "8층 엘리베이터에서 내리시면 좌측 포토존에 위치해 있습니다.\n횟수 제한 없이 촬영하실 수 있습니다.",
     },
     {
       type: "photo",
@@ -100,7 +100,7 @@ export const invitationContent: InvitationContent = {
       image: "/images/venue/bride.jpg",
       imageWidth: 1000,
       imageHeight: 667,
-      description: "엘리베이터에서 내리시면 우측 가장 안쪽에 있습니다.",
+      description: "8층 엘리베이터에서 내리시면 우측 가장 안쪽에 있습니다.",
     },
     {
       type: "photo",
@@ -119,7 +119,7 @@ export const invitationContent: InvitationContent = {
       items: [
         {
           title: "ATM",
-          text: "엘리베이터에서 내리시면 우측 축의대 맞은편에 있습니다.",
+          text: "8층 엘리베이터에서 내리시면 우측 축의대 맞은편에 있습니다.",
         },
         {
           title: "주차 등록",

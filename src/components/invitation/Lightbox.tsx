@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import styles from "./Lightbox.module.css";
 import type { GalleryImage } from "@/types/invitation";
@@ -20,6 +21,30 @@ export default function Lightbox({
   onNext,
 }: LightboxProps) {
   const current = images[index];
+
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    const { body } = document;
+    const original = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+    };
+
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+
+    return () => {
+      body.style.overflow = original.overflow;
+      body.style.position = original.position;
+      body.style.top = original.top;
+      body.style.width = original.width;
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
 
   return (
     <div className={styles.lightbox} onClick={onClose}>
