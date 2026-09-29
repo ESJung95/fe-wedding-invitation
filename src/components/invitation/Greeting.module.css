@@ -32,10 +32,11 @@
 
 .parents {
   font-family: "Noto Serif KR", serif;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--ink);
   margin: 0 0 8px;
+  white-space: nowrap;
 }
 
 .role {
