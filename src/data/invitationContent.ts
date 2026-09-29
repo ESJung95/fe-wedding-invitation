@@ -60,7 +60,7 @@ export const invitationContent: InvitationContent = {
     message:
       "서로 다른 길을 걸어온 두 사람이\n이제 한 곳을 바라보며 걸어가려 합니다.\n바쁘시더라도 오셔서 축복해 주시면\n큰 힘이 되겠습니다.",
     groomFamily: {
-      parents: "이민섭 · 故 김은미",
+      parents: "이민섭 · 故김은미",
       role: "의 장남",
     },
     brideFamily: {
