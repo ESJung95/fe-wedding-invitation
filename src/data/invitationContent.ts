@@ -91,7 +91,7 @@ export const invitationContent: InvitationContent = {
       imageWidth: 1000,
       imageHeight: 667,
       description:
-        "8층 엘리베이터에서 내리시면 좌측 포토존에 위치해 있습니다.\n횟수 제한 없이 촬영하실 수 있습니다.",
+        "8층 엘리베이터에서 내리시면 좌측 포토존에 위치해 있습니다.\n운영 시간은 11:30 ~ 13:00 입니다.\n횟수 제한 없이 촬영하실 수 있습니다.",
     },
     {
       type: "photo",
